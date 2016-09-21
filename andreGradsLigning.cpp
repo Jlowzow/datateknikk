@@ -53,12 +53,13 @@ vector<complex<double>> finnRotter(double a, double b, double r){
 }
 
 void skrivUtSvar(double a, double b, double r){
-    vector<complex<double> losning;
+    vector<complex<double>> losning;
 
     losning = finnRotter(a, b, r);
 
     cout << losning[0] << endl;
     cout << losning[1] << endl;
+}
 
 int main(){
     introduksjon();
