@@ -16,4 +16,7 @@ int main(){
     for(int i = a.size(); i > 0; i--){
         cout << a[i] << endl;
     }
+
+    getline(cin,a);
+    string::size_type n = a.size();
 }
