@@ -13,6 +13,23 @@ using std::endl;
 using std::complex;
 using std::string;
 
+void introduksjon();
+double lesInn(string);
+double radikand(double, double, double);
+vector<complex<double>> finRotter(double, double, double);
+void skrivUtSvar(double, double, double);
+
+int main(){
+    introduksjon();
+    double a, b, c, r;
+    a = lesInn("a");
+    b = lesInn("b");
+    c = lesInn("c");
+    r = radikand(a, b, c);
+    skrivUtSvar(a, b, r);
+    return 0;
+}
+
 void introduksjon(){
     cout << "Dette programmet løser 2.gradsligninger, Du blir bedt om å skrive inn a, b og c ledd" << endl;
 }
@@ -32,7 +49,8 @@ double radikand(double a, double b, double c){
 
     return r;
 }
-
+//finner røttene og samler dem i en vektor. Returnerer denne vektoren.
+//Har lekt med komplekse tall i C++
 vector<complex<double>> finnRotter(double a, double b, double r){
     vector<complex<double>> rotter;
     complex<double> x1, x2;
@@ -51,7 +69,7 @@ vector<complex<double>> finnRotter(double a, double b, double r){
     return rotter;
     
 }
-
+// Skriver ut røttene. Tester om det er en imaginær del og formaterer svaret deretter.
 void skrivUtSvar(double a, double b, double r){
     vector<complex<double>> losning;
 
@@ -66,15 +84,3 @@ void skrivUtSvar(double a, double b, double r){
         cout << "x2 = " << real(losning[1]) << endl;
     }
 }
-
-int main(){
-    introduksjon();
-    double a, b, c, r;
-    a = lesInn("a");
-    b = lesInn("b");
-    c = lesInn("c");
-    r = radikand(a, b, c);
-    skrivUtSvar(a, b, r);
-    return 0;
-}
-
