@@ -56,9 +56,15 @@ void skrivUtSvar(double a, double b, double r){
     vector<complex<double>> losning;
 
     losning = finnRotter(a, b, r);
-
-    cout << losning[0] << endl;
-    cout << losning[1] << endl;
+    cout << endl;
+    
+    if(imag(losning[0]) != 0){
+        cout << "x1 = " << real(losning[0]) << " + " << imag(losning[0]) << "j " <<  endl;
+        cout << "x2 = " << real(losning[1]) << " + " << imag(losning[1]) << "j " <<  endl;
+    } else {
+        cout << "x1 = " << real(losning[0]) << endl;
+        cout << "x2 = " << real(losning[1]) << endl;
+    }
 }
 
 int main(){
