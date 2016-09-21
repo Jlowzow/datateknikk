@@ -52,19 +52,22 @@ vector<complex<double>> finnRotter(double a, double b, double r){
     
 }
 
+void skrivUtSvar(double a, double b, double r){
+    vector<complex<double> losning;
+
+    losning = finnRotter(a, b, r);
+
+    cout << losning[0] << endl;
+    cout << losning[1] << endl;
+
 int main(){
     introduksjon();
-
     double a, b, c, r;
     a = lesInn("a");
     b = lesInn("b");
     c = lesInn("c");
-
     r = radikand(a, b, c);
-    vector<complex<double>> losning = finnRotter(a, b, r);
-
-    cout << "x1 " << losning[0] << endl;
-    cout << "x2 " << losning[1] << endl;
-
+    skrivUtSvar(a, b, r);
+    return 0;
 }
 
