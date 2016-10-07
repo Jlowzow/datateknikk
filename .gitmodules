@@ -1,0 +1,3 @@
+[submodule "plot.py"]
+	path = plot.py
+	url = https://github.com/voibit/plot.py.git
