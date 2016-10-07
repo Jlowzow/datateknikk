@@ -1,34 +1,14 @@
+// main.cpp
+
 #include <iostream>
-#include <string>
-#include "arrayHjelp.h"
-#include <array>
+#include "signal.h"
+#include <math.h>
 
-using namespace std;
 
+const double pi = std::acos(-1);
 
 int main(){
-    
-    const int n = 5;
-    double X[n];
-
-
-    for(int i = 0; i < n; i++  ){
-        cin >> X[i];
-    }
-    
-    cout << endl;
-
-    
-    sorter(X, n);
-
-    for(int v = 0; v < n; v++  ){
-        cout << X[v] << endl;
-    }
-    
-    cout << endl;
-    
-    reverser(X, n);    
-    for(int v = 0; v < n; v++  ){
-        cout << X[v] << endl;
-    }
+    std::cout << pi << std::endl;
+    std::cout << dToRad(90) << std::endl;
+    return 0;
 }
