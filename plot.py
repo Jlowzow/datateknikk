@@ -69,7 +69,7 @@ for linjenr, linje in enumerate(linjer) :
 
 if len(akse) < 2:
 
-	print "Du har ikke oppgitt en gyldig fil med 2 eller fler akser.. "
+	print ("Du har ikke oppgitt en gyldig fil med 2 eller fler akser.. ")
 	exit()
 
 
