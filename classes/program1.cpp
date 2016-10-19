@@ -15,7 +15,7 @@ void program1(){
 
 	ofstream utfil;
 	utfil.open("graf.dat");
-	utfil << "x" << setw(10) << "sin(x)" << setw(10) << "cos(x)" << endl;
+	utfil << "x" << setw(15) << "sin(x)" << setw(15) << "cos(x)" << endl;
 
 	int n = 361;
 	double y1[n];
@@ -24,7 +24,7 @@ void program1(){
 	for(int i = 0; i < n; i++){
 		y1[i] = noise(sin(dToRad(i)));
 		y2[i] = noise(cos(dToRad(i)));
-		utfil << i << setw(12) << y1[i] << setw(10) << y2[i] << endl;
+		utfil << i << setw(15) << y1[i] << setw(15) << y2[i] << endl;
 	}
 	ofstream utfil2;
 	utfil2.open("graf.txt");
@@ -36,5 +36,7 @@ void program1(){
 
 	utfil2.close();
 	src.close();
+
+	system("python plotter.py");
 }
 
