@@ -13,7 +13,6 @@ double dToRad(double d){
 }
 
 double noise(double in){
-    srand(time(NULL));
     double out;
     out = in + 0.1 * ((double) rand() / RAND_MAX - 0.5);
     return out;
