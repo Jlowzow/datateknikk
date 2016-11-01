@@ -2,13 +2,25 @@
 
 #include <iostream>
 #include "signal.h"
+#include "program1.h"
+#include "program2.h"
 #include <math.h>
+#include <cstdlib>
+#include <fstream>
+#include <string>
 
-
-const double pi = std::acos(-1);
+using std::cout;
+using std::endl;
+using std::ofstream;
+using std::string;
 
 int main(){
-    std::cout << pi << std::endl;
-    std::cout << dToRad(90) << std::endl;
+	
+	string filnamn = "graf.txt";
+
+	program1();
+	program2(filnamn);
+	
     return 0;
+
 }
