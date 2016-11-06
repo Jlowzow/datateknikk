@@ -3,6 +3,7 @@
 
 using std::vector;
 
+
 void mcl1D(int *X0, int n, double hastighet, double sensor) //mcl alogoritmen skal ta tabell med mulige possisjoner, bevegelse og sensorinput
 {
 	int X[n];
