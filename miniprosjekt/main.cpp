@@ -10,9 +10,13 @@ int main(){
 	double sensorSD = 50;
 	double xpos	= 5;
 	int npartikler = 200;
-	cout << "test" << endl;
+	cout << "skriv inn et utrykk: " << endl;
 	mcLokaliserer mcl(npartikler, xpos, sensorSD);
 	enkelParser pars;
 
-	cout << pars.parsString("sin(pi/2)", 1) << endl;
+	string regn;
+	cin >> regn;
+	cout << endl;
+
+	cout << pars.parsString(regn, 1) << endl;
 }

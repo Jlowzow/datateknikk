@@ -12,7 +12,7 @@ class enkelParser{
  
 public:
 	enkelParser();
-	double parsString(string exp_string, double X);
+	double parsString(std::string exp_string, double X);
 };
 
 #endif
