@@ -3,8 +3,21 @@
 #include "arrayHjelp.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
+
+vector<vector<string>> kartl;
+
+void nyttkart(string funk){
+	vector<string> temp;
+	temp.push_back(funk);
+	kartl.push_back(temp);
+}
+
+void lagrekart(string fil){
+	ofstream utfil;
+}
 
 int main(){
 	double sensorSD = 50;
