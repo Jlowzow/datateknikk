@@ -99,7 +99,7 @@ double pdf(double x, double my, double var){
 }
 
 
-int main(){
+/* int main(){
 	double sensorStandardAvvik = 2.3;
 	int x = 50;
 	int partikler = 200;
@@ -121,4 +121,4 @@ int main(){
 		
 	}
 }
-
+*/
