@@ -29,6 +29,21 @@ void boblesorter(vector<double> & vec){
 		if (!byttet) break;
 	}
 }
+void boblesorter(vector<double>& vec, vector<double>& kol){
+	int lengde = vec.size();
+
+	for(int i = 0; i < lengde; i++){
+		bool byttet = false;
+		for(int j = 0; j < lengde - (i+1); j++){
+			if(vec[j] > vec[j+1]){
+				bytt(vec, j, j+1);
+				bytt(kol, j, j+1);
+				byttet = true;
+			}
+		}
+		if (!byttet) break;
+	}
+}
 
 void sorter(double *x, int n){
 

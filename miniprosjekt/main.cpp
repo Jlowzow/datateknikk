@@ -110,9 +110,13 @@ void estimerPos(){
 		mcl.oppdaterPartikler(1);
 	}
 	vector<double> hypoteser;
+	vector<double> vekter;
 	hypoteser = mcl.getPartikler();
-	for(int n: hypoteser){
-		cout << n << endl;
+	vekter = mcl.getVekter();
+
+	boblesorter(hypoteser, vekter);
+	for(int n = 0; n < hypoteser.size(); n++){
+		cout << hypoteser[n] << " " << vekter[n] << endl;
 	}
 }
 
