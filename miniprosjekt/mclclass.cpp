@@ -23,7 +23,7 @@ public:
 	vector<double> getPartikler();
 	vector<double> getVekter();
 	void resample();
-	void oppdaterVekter(double xpos);
+	void oppdaterVekter(double maaling);
 	void oppdaterPartikler(double bevegelse);
 	double kart(double);
 };
@@ -80,10 +80,9 @@ vector<double> mcLokaliserer::getVekter(){
 // målingen er oppmot hvor partikkelen befinner seg. Vi tar utgangspunkt i at 
 // sensoren er unøyaktig med kjent standardavvik. Vekten blir lik sannsynligheten
 // for målingen i en normalfordeling, med kjent standardavvik.
-void mcLokaliserer::oppdaterVekter(double xpos){
-	double forventning = kart(xpos);
+void mcLokaliserer::oppdaterVekter(double maaling){
 	for(int i = 0; i < partikler.size(); i++){
-		vekter[i] = pdf(kart(partikler[i]), forventning, sensorSD);
+		vekter[i] = pdf(kart(partikler[i]), maaling, sensorSD);
 	}
 }
 
