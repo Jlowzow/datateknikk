@@ -53,7 +53,10 @@ void opnekartfil(string fil){
 }
 
 void listkart(){
+	int i = 0;
 	for(auto const& linje: kartl){
+		cout << i << ". ";
+		i ++;
 		for(auto const& kol: linje){
 			cout << kol << " ";
 		}
@@ -74,13 +77,14 @@ void lagTestData(){
 	int x2;
 	cin >> x2;
 	n = x2 - x1;
+	
 	testdata = new double[n];
 	cout << "test" << endl;
 	int j = 0;
 	cout << kartl[k-1][0] << endl;
-	for(int i = x1; i < x2; i++){
+	for(int i = x1; i < x2+5; i += 5){
 		testdata[j] = pars.parsString(kartl[k-1][1], i);
-		cout << testdata[j] << endl;
+		cout << i << endl;
 		j++;
 	}
 }
@@ -90,6 +94,7 @@ void estimerPos(){
 	cout << "hvilke kart vil du sammenligne data med?" << endl;
 	int i;
 	cin >> i;
+	cout << kartl[i-1][1] << endl;
 	cout << "Gjett utgangsposisjon: " << endl;
 	double Xpos;
 	cin >> Xpos;
@@ -103,14 +108,17 @@ void estimerPos(){
 	int npartikler;
 	cin >> npartikler;
 	mcLokaliserer mcl(npartikler, Xpos, sensorSD, kartl[i-1][1]);
-
-	for(int k = 0; k < n; k++){
-		mcl.oppdaterVekter( testdata[k]);
+	
+	int l = -1;
+	for(int k =(int)Xpos; k < n + (int)Xpos + 5; k += 5){
+		mcl.oppdaterPartikler(5);
+		l++;
+		mcl.oppdaterVekter( testdata[l]);
 		mcl.resample();
-		mcl.oppdaterPartikler(1);
 	}
 	vector<double> hypoteser;
 	vector<double> vekter;
+	mcl.oppdaterVekter(testdata[l]);
 	hypoteser = mcl.getPartikler();
 	vekter = mcl.getVekter();
 
@@ -118,6 +126,15 @@ void estimerPos(){
 	for(int n = 0; n < hypoteser.size(); n++){
 		cout << hypoteser[n] << " " << vekter[n] << endl;
 	}
+	cout << endl;
+	cout << "Spredning på hypotesene: " << hypoteser.back() - hypoteser[0] <<endl;
+	double temp = max(vekter);
+	int pos = find(vekter.begin(), vekter.end(), temp) - vekter.begin();
+	
+	cout << "beste estimat: " << hypoteser[pos] << endl;
+	cout << endl;
+
+
 }
 
 void meny(){
@@ -172,6 +189,10 @@ void meny(){
 }
 
 int main(){
+	
+	cout << "Velkommen til dette kartbiblioteket og demonstrasjon av hvordan vi kan finne lokasjon ved hjelp av Sekvensiell Monte Carlo alogoritmen. " << endl;
+	cout << endl;
+	opnekartfil("kart.txt");
 
 	meny();
 	

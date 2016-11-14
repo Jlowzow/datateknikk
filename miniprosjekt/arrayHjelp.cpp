@@ -81,6 +81,16 @@ double min(const double *a, int &vinkel, int n)
 	}
 	return x;
 }
+double min(vector<double> & vec)
+{
+	double x = vec[0];
+	for(int i = 0; i < vec.size(); i++){
+		if(x < vec[i]){
+			x = vec[i];
+		}
+	}
+	return x;
+}
 
 double max(const double *a, int &vinkel, int n){
 	double x = a[0];

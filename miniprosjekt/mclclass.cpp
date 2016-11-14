@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random> //må kompileres med c++11
 #include <cmath>
-//#include "arrayHjelp.h"
+#include "arrayHjelp.h"
 #include <functional> // Muliggjør funksjoner som argument
 #include "enkelparser.h"
 
@@ -97,8 +97,8 @@ double pdf(double x, double my, double var){
 	return y;
 }
 
-
-/* int main(){
+/*
+	int main(){
 	double sensorStandardAvvik = 2.3;
 	int x = 50;
 	int partikler = 200;
@@ -107,7 +107,7 @@ double pdf(double x, double my, double var){
 	mcLokaliserer mcl(partikler, x, sensorStandardAvvik, kstring);
 	for(int i = 0; i < 200; i++){
 		cout << "Syklus, x= " << x << endl;
-		mcl.oppdaterVekter(x);
+		mcl.oppdaterVekter(mcl.kart(x));
 		vector<double> partikler = mcl.getPartikler();
 		vector<double> vekter = mcl.getVekter();
 		
